@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cumple de mi Amorsh</title>
+    <script>
+        // GitHub Pages SPA redirect hack:
+        // Redirect /<repo>/some/path → /<repo>/?p=/some/path
+        // Then the app reads the query param and restores history.
+        const l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 2).join('/') + '/?p=' +
+            l.pathname.slice(1).split('/').slice(1).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        );
+    </script>
+</head>
+
+<body></body>
+
+</html>
